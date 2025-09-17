@@ -2,5 +2,5 @@ let cartCount = 0;
 
 function addToCart() {
   cartCount++;
-  document.getElementById("cart").textContent = `Корзина (${cartCount})`;
+  document.getElementById('cart').innerText = `Корзина (${cartCount})`;
 }
