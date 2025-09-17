@@ -1,4 +1,4 @@
-let cart = []; // { name, price, quantity }
+let cart = [];
 
 function addToCart(name, price) {
   const existingItem = cart.find(item => item.name === name);
@@ -32,7 +32,7 @@ function updateCart() {
   cart.forEach((item) => {
     const li = document.createElement('li');
     li.innerHTML = `
-      ${item.name} - ${item.price.toLocaleString()} ₸ x ${item.quantity} 
+      ${item.name} - ${item.price.toLocaleString()} ₸ x ${item.quantity}
       <button onclick="addToCart('${item.name}', ${item.price})">+</button>
       <button onclick="removeFromCart('${item.name}')">-</button>
     `;
