@@ -3,43 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MyShop</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f4f4f4;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  background: #333;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.product {
-  background: white;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background: #0056b3;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -68,14 +32,6 @@ button:hover {
   </div>
 </main>
 
-<script>
-let cartCount = 0;
-
-function addToCart() {
-  cartCount++;
-  document.getElementById('cart').innerText = `Корзина (${cartCount})`;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
