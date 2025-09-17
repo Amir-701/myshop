@@ -1,7 +1,6 @@
 let cartCount = 0;
 
-function addToCart(productName) {
+function addToCart() {
   cartCount++;
-  document.getElementById("cart-count").textContent = cartCount;
-  alert(productName + " добавлен в корзину!");
+  document.getElementById("cart").textContent = `Корзина (${cartCount})`;
 }
