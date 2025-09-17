@@ -1,18 +1,22 @@
+/* Общие стили */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
   background: #f4f4f4;
 }
 
+/* Шапка сайта */
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #333;
   color: white;
   padding: 15px;
   border-radius: 10px;
 }
 
+/* Карточка товара */
 .product {
   background: white;
   padding: 15px;
@@ -21,6 +25,7 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Кнопки */
 button {
   background: #007bff;
   color: white;
@@ -35,6 +40,7 @@ button:hover {
   background: #0056b3;
 }
 
+/* Блок корзины */
 #cart-items {
   max-width: 400px;
   background: white;
@@ -44,6 +50,31 @@ button:hover {
   margin-top: 20px;
 }
 
+/* Список товаров в корзине */
 #cart-list li {
   margin-bottom: 10px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .product {
+    padding: 10px;
+    font-size: 14px;
+  }
+  button {
+    padding: 3px 7px;
+    margin-left: 3px;
+    font-size: 14px;
+  }
+  #cart-items {
+    max-width: 100%;
+    padding: 10px;
+  }
 }
