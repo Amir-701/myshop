@@ -1,7 +1,6 @@
 let cart = [];
 
 function addToCart(name, price) {
-  // проверяем, есть ли уже такой товар в корзине
   const existingItem = cart.find(item => item.name === name);
   if (existingItem) {
     existingItem.quantity += 1;
@@ -20,16 +19,35 @@ function updateCart() {
   let total = 0;
   let totalItems = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const li = document.createElement('li');
-    li.textContent = `${item.name} - ${item.price.toLocaleString()} ₸ × ${item.quantity}`;
+    li.innerHTML = `
+      ${item.name} - ${item.price.toLocaleString()} ₸ × ${item.quantity}
+      <button onclick="changeQuantity(${index}, 1)">+</button>
+      <button onclick="changeQuantity(${index}, -1)">−</button>
+      <button onclick="removeItem(${index})">Удалить</button>
+    `;
     cartList.appendChild(li);
+
     total += item.price * item.quantity;
     totalItems += item.quantity;
   });
 
-  cartCount.textContent = totalItems; // обновляем количество товаров
-  totalPrice.textContent = total.toLocaleString(); // итоговая сумма
+  cartCount.textContent = totalItems;
+  totalPrice.textContent = total.toLocaleString();
+}
+
+function changeQuantity(index, delta) {
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  updateCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
 }
 
 function toggleCart() {
