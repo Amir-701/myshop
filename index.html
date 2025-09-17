@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>MyShop</title>
@@ -9,7 +9,7 @@
 
 <header>
   <h1>MyShop</h1>
-  <p id="cart" onclick="toggleCart()" style="cursor:pointer;">Корзина (0)</p>
+  <p id="cart" onclick="toggleCart()" style="cursor:pointer;">Корзина (<span id="cart-count">0</span>)</p>
 </header>
 
 <main>
@@ -21,18 +21,22 @@
 
   <div class="product">
     <h2>Футболка Adidas</h2>
-    <p>12 000 ₸</p>
-    <button onclick="addToCart('Футболка Adidas', 12000)">В корзину</button>
+    <p>8 000 ₸</p>
+    <button onclick="addToCart('Футболка Adidas', 8000)">В корзину</button>
   </div>
 
   <div class="product">
     <h2>Кепка Puma</h2>
-    <p>8 000 ₸</p>
-    <button onclick="addToCart('Кепка Puma', 8000)">В корзину</button>
+    <p>5 000 ₸</p>
+    <button onclick="addToCart('Кепка Puma', 5000)">В корзину</button>
   </div>
 </main>
 
-<div id="cartItems" style="display:none; background:#fff; border:1px solid #333; padding:10px; margin-top:10px;"></div>
+<div id="cart-items" style="display:none; border:1px solid #000; padding:10px; margin-top:20px;">
+  <h2>Корзина</h2>
+  <ul id="cart-list"></ul>
+  <p>Итого: <span id="total-price">0</span> ₸</p>
+</div>
 
 <script src="script.js"></script>
 </body>
