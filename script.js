@@ -1,17 +1,10 @@
-let cart = []; // Массив корзины
+let cart = [];
 
-// Добавление товара в корзину
 function addToCart(name, price) {
-  const existingItem = cart.find(item => item.name === name);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ name, price, quantity: 1 });
-  }
+  cart.push({ name, price });
   updateCart();
 }
 
-// Обновление корзины на странице
 function updateCart() {
   const cartList = document.getElementById('cart-list');
   const cartCount = document.getElementById('cart-count');
@@ -19,49 +12,19 @@ function updateCart() {
 
   cartList.innerHTML = '';
   let total = 0;
-  let totalItems = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item) => {
     const li = document.createElement('li');
-    li.innerHTML = `
-      ${item.name} - ${item.price.toLocaleString()} ₸ × ${item.quantity}
-      <button onclick="changeQuantity(${index}, 1)">+</button>
-      <button onclick="changeQuantity(${index}, -1)">−</button>
-      <button onclick="removeItem(${index})">Удалить</button>
-    `;
+    li.textContent = `${item.name} - ${item.price.toLocaleString()} ₸`;
     cartList.appendChild(li);
-
-    total += item.price * item.quantity;
-    totalItems += item.quantity;
+    total += item.price;
   });
 
-  cartCount.textContent = totalItems;
+  cartCount.textContent = cart.length;
   totalPrice.textContent = total.toLocaleString();
 }
 
-// Изменение количества товара
-function changeQuantity(index, delta) {
-  cart[index].quantity += delta;
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-  updateCart();
-}
-
-// Полное удаление товара
-function removeItem(index) {
-  cart.splice(index, 1);
-  updateCart();
-}
-
-// Показ / скрытие корзины
 function toggleCart() {
   const cartDiv = document.getElementById('cart-items');
   cartDiv.style.display = cartDiv.style.display === 'none' ? 'block' : 'none';
 }
-
-// Скрываем корзину по умолчанию на мобильных экранах
-window.onload = () => {
-  const cartDiv = document.getElementById('cart-items');
-  cartDiv.style.display = 'none';
-};
