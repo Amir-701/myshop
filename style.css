@@ -25,7 +25,8 @@ button {
   background: #007bff;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 5px 10px;
+  margin-left: 5px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -35,10 +36,14 @@ button:hover {
 }
 
 #cart-items {
-  max-width: 300px;
+  max-width: 400px;
   background: white;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   margin-top: 20px;
+}
+
+#cart-list li {
+  margin-bottom: 10px;
 }
