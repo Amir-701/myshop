@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>MyShop</title>
+  <title>Brand Astana</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>MyShop</h1>
+  <h1>Brand Astana</h1>
   <p id="cart" onclick="toggleCart()" style="cursor:pointer;">
     Корзина (<span id="cart-count">0</span>)
   </p>
@@ -16,25 +16,28 @@
 
 <main>
   <div class="product">
+    <img src="https://cdn.intertop.com/load/mp341524/412x550/MAIN.jpeg" alt="Кроссовки Nike">
     <h2>Кроссовки Nike</h2>
     <p>25 000 ₸</p>
     <button onclick="addToCart('Кроссовки Nike', 25000)">В корзину</button>
   </div>
 
   <div class="product">
+    <img src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/E37032s2.jpg?im=Resize,width=750" alt="Футболка Adidas">
     <h2>Футболка Adidas</h2>
     <p>8 000 ₸</p>
     <button onclick="addToCart('Футболка Adidas', 8000)">В корзину</button>
   </div>
 
   <div class="product">
+    <img src="https://cdn.intertop.com/load/mp251479/412x550/MAIN.jpg" alt="Кепка Puma">
     <h2>Кепка Puma</h2>
     <p>5 000 ₸</p>
     <button onclick="addToCart('Кепка Puma', 5000)">В корзину</button>
   </div>
 </main>
 
-<div id="cart-items">
+<div id="cart-items" style="display:none;">
   <h2>Корзина</h2>
   <ul id="cart-list"></ul>
   <p>Итого: <span id="total-price">0</span> ₸</p>
