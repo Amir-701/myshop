@@ -1,30 +1,24 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Мой магазин</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Онлайн-магазин</h1>
-    <button id="cart-btn">🛒 Корзина (<span id="cart-count">0</span>)</button>
-  </header>
+<header>
+  <h1>MyShop</h1>
+  <p id="cart">Корзина (0)</p>
+</header>
 
-  <main>
-    <div class="product">
-      <h2>Товар 1</h2>
-      <p>Цена: 1000₸</p>
-      <button onclick="addToCart('Товар 1')">Добавить в корзину</button>
-    </div>
+<main>
+  <div class="product">
+    <h2>Кроссовки Nike</h2>
+    <p>25 000 ₸</p>
+    <button onclick="addToCart()">В корзину</button>
+  </div>
 
-    <div class="product">
-      <h2>Товар 2</h2>
-      <p>Цена: 2000₸</p>
-      <button onclick="addToCart('Товар 2')">Добавить в корзину</button>
-    </div>
-  </main>
+  <div class="product">
+    <h2>Футболка Adidas</h2>
+    <p>12 000 ₸</p>
+    <button onclick="addToCart()">В корзину</button>
+  </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <div class="product">
+    <h2>Кепка Puma</h2>
+    <p>8 000 ₸</p>
+    <button onclick="addToCart()">В корзину</button>
+  </div>
+</main>
