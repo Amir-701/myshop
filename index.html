@@ -2,186 +2,29 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Demo Shop</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Мой магазин</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100">
+<body>
+  <header>
+    <h1>Онлайн-магазин</h1>
+    <button id="cart-btn">🛒 Корзина (<span id="cart-count">0</span>)</button>
+  </header>
 
-  <!-- Навбар -->
-  <nav class="bg-blue-600 text-white p-4 flex justify-between">
-    <h1 class="font-bold text-xl">MyShop</h1>
-    <div>
-      <button id="cartBtn" class="bg-blue-800 px-3 py-1 rounded">Корзина (0)</button>
-    </div>
-  </nav>
-
-  <!-- Каталог -->
-  <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Кроссовки Nike</h2>
-      <p class="text-gray-600">25 000 ₸</p>
-      <button onclick="addToCart('Кроссовки Nike', 25000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
+  <main>
+    <div class="product">
+      <h2>Товар 1</h2>
+      <p>Цена: 1000₸</p>
+      <button onclick="addToCart('Товар 1')">Добавить в корзину</button>
     </div>
 
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Футболка Adidas</h2>
-      <p class="text-gray-600">12 000 ₸</p>
-      <button onclick="addToCart('Футболка Adidas', 12000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Кепка Puma</h2>
-      <p class="text-gray-600">8 000 ₸</p>
-      <button onclick="addToCart('Кепка Puma', 8000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
+    <div class="product">
+      <h2>Товар 2</h2>
+      <p>Цена: 2000₸</p>
+      <button onclick="addToCart('Товар 2')">Добавить в корзину</button>
     </div>
   </main>
 
-  <!-- Корзина (модальное окно) -->
-  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-      <h2 class="text-xl font-bold mb-4">Корзина</h2>
-      <div id="cartItems"></div>
-      <p class="mt-4 font-bold">Итого: <span id="cartTotal">0</span> ₸</p>
-      <button onclick="closeCart()" class="bg-red-500 text-white px-4 py-2 rounded mt-4">Закрыть</button>
-    </div>
-  </div>
-
-  <script>
-    let cart = [];
-    
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      document.getElementById("cartBtn").innerText = `Корзина (${cart.length})`;
-      let itemsHtml = "";
-      let total = 0;
-      cart.forEach(item => {
-        itemsHtml += `<div class="flex justify-between border-b py-1">
-                        <span>${item.name}</span>
-                        <span>${item.price} ₸</span>
-                      </div>`;
-        total += item.price;
-      });
-      document.getElementById("cartItems").innerHTML = itemsHtml || "Корзина пуста";
-      document.getElementById("cartTotal").innerText = total;
-    }
-
-    document.getElementById("cartBtn").addEventListener("click", () => {
-      document.getElementById("cartModal").classList.remove("hidden");
-    });
-
-    function closeCart() {
-      document.getElementById("cartModal").classList.add("hidden");
-    }
-  </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Demo Shop</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-
-  <!-- Навбар -->
-  <nav class="bg-blue-600 text-white p-4 flex justify-between">
-    <h1 class="font-bold text-xl">MyShop</h1>
-    <div>
-      <button id="cartBtn" class="bg-blue-800 px-3 py-1 rounded">Корзина (0)</button>
-    </div>
-  </nav>
-
-  <!-- Каталог -->
-  <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Кроссовки Nike</h2>
-      <p class="text-gray-600">25 000 ₸</p>
-      <button onclick="addToCart('Кроссовки Nike', 25000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Футболка Adidas</h2>
-      <p class="text-gray-600">12 000 ₸</p>
-      <button onclick="addToCart('Футболка Adidas', 12000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow bg-white">
-      <img src="https://via.placeholder.com/200" class="w-full h-40 object-cover">
-      <h2 class="font-bold mt-2">Кепка Puma</h2>
-      <p class="text-gray-600">8 000 ₸</p>
-      <button onclick="addToCart('Кепка Puma', 8000)" 
-              class="bg-blue-500 text-white px-3 py-1 rounded mt-2 hover:bg-blue-700">
-        В корзину
-      </button>
-    </div>
-  </main>
-
-  <!-- Корзина (модальное окно) -->
-  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-      <h2 class="text-xl font-bold mb-4">Корзина</h2>
-      <div id="cartItems"></div>
-      <p class="mt-4 font-bold">Итого: <span id="cartTotal">0</span> ₸</p>
-      <button onclick="closeCart()" class="bg-red-500 text-white px-4 py-2 rounded mt-4">Закрыть</button>
-    </div>
-  </div>
-
-  <script>
-    let cart = [];
-    
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      document.getElementById("cartBtn").innerText = `Корзина (${cart.length})`;
-      let itemsHtml = "";
-      let total = 0;
-      cart.forEach(item => {
-        itemsHtml += `<div class="flex justify-between border-b py-1">
-                        <span>${item.name}</span>
-                        <span>${item.price} ₸</span>
-                      </div>`;
-        total += item.price;
-      });
-      document.getElementById("cartItems").innerHTML = itemsHtml || "Корзина пуста";
-      document.getElementById("cartTotal").innerText = total;
-    }
-
-    document.getElementById("cartBtn").addEventListener("click", () => {
-      document.getElementById("cartModal").classList.remove("hidden");
-    });
-
-    function closeCart() {
-      document.getElementById("cartModal").classList.add("hidden");
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
