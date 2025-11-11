@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Brand Astana</title>
-  <link rel="stylesheet" href="style.css"> <!-- CSS подключен -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Астана одежда</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
-  <h1>Brand Astana</h1>
-  <p id="cart" onclick="toggleCart()" style="cursor:pointer;">
-    Корзина (<span id="cart-count">0</span>)
-  </p>
+  <h1>Астана одежда</h1>
 </header>
 
 <main>
-  <div class="product">
-    <img src="https://cdn.intertop.com/load/mp341524/412x550/MAIN.jpeg" alt="Кроссовки Nike">
-    <h2>Кроссовки Nike</h2>
-    <p>25 000 ₸</p>
-    <button onclick="addToCart('Кроссовки Nike', 25000)">В корзину</button>
-  </div>
+  <section class="categories">
+    <button class="category-btn" data-category="mens">👕 Мужская одежда</button>
+    <button class="category-btn" data-category="womens">👗 Женская одежда</button>
+    <button class="category-btn" data-category="kids">🧒 Детская одежда</button>
+    <button class="category-btn" data-category="shoes">👟 Обувь</button>
+  </section>
 
-  <div class="product">
-    <img src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/E37032s2.jpg?im=Resize,width=750" alt="Футболка Adidas">
-    <h2>Футболка Adidas</h2>
-    <p>8 000 ₸</p>
-    <button onclick="addToCart('Футболка Adidas', 8000)">В корзину</button>
-  </div>
-
-  <div class="product">
-    <img src="https://cdn.intertop.com/load/mp251479/412x550/MAIN.jpg" alt="Кепка Puma">
-    <h2>Кепка Puma</h2>
-    <p>5 000 ₸</p>
-    <button onclick="addToCart('Кепка Puma', 5000)">В корзину</button>
-  </div>
+  <section id="products" class="products"></section>
 </main>
 
-<div id="cart-items" style="display:none;">
-  <h2>Корзина</h2>
-  <ul id="cart-list"></ul>
-  <p>Итого: <span id="total-price">0</span> ₸</p>
+<div class="cart">
+  <h2>Корзина 🛒</h2>
+  <ul id="cart-items"></ul>
+  <p id="total">Итого: 0 тг</p>
+  <button id="order-btn">Оформить заказ</button>
 </div>
 
-<script src="script.js"></script> <!-- JS подключен -->
+<!-- Заказ -->
+<div id="order-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+    <h3>Оформление заказа</h3>
+    <input type="text" id="customer-name" placeholder="Ваше имя">
+    <input type="text" id="customer-phone" placeholder="Номер WhatsApp">
+    <button id="send-order">Отправить заказ</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
