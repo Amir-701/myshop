@@ -86,5 +86,5 @@ sendOrderBtn.addEventListener("click", () => {
   });
   let total = cart.reduce((sum, item) => sum + item.price, 0);
   message += `Итого: ${total} тг%0AИмя: ${name}%0AТелефон: ${phone}`;
-  window.open(`https://wa.me/77757817401?text=${message}`, "_blank");
+  window.open(`https://wa.me/77477352247?text=${message}`, "_blank");
 });
